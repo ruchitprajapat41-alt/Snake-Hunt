@@ -67,8 +67,13 @@ https://ruchitprajapat41-alt.github.io/Snake-Hunt/
 - **CSS**
 - **JavaScript**
 - **JSON**
-- **Font Awesome** ```https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap```
-```https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css```
+- **Font Awesome**
+```
+https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap
+```
+```
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
+```
 
 ---
 
