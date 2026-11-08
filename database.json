@@ -1,0 +1,29 @@
+{
+    "project": {
+        "name":"Snake Hunt",
+        "studentAge": 14 ,
+        "for": "Phantom Hack Club",
+        "tech":["HTML", "CSS", "JavaScript", "JSON"],
+        "photosUsed": 3,
+        "photoTheme": "Neon gaming attractive"
+    },
+
+    "modes": [
+        {"id":"classic","name":"Classic","icon":"fa-infinity","desc":"Normal play"},
+        {"id":"walls","name":"Walls","icon":"fa-cubes","desc":"With obstacles"},
+        {"id":"speed","name":"Speed","icon":"fa-bolt","desc":"Fast run"}
+    ],
+
+    "foods": [
+        {"name":"Red Berry","color":"red","points":10,"desc":"Normal"},
+        {"name":"Gold star","color":"yellow","points":50,"desc":"Super"},
+        {"name":"Shield","color":"blue","points":30,"desc":"Shield"},
+        {"name":"Ghost","color":"purple","points":100,"desc":"Ghost mode"}
+    ],
+
+    "board": [
+        {"rank":1,"name":"NeonKing","level":10,"score":920,"badge":"gold"},
+        {"rank":2,"name":"Viper","level":8,"score":640,"badge":"silver"},
+        {"rank":3,"name":"Python","level":6,"score":380,"badge":"bronze"}
+    ]
+}

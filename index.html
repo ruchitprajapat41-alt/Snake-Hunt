@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Hunt</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="nav-left">
+            <div class="logo"><i class="fa-solid fa-bolt"></i></div>
+            <h2>SNAKE<span>HUNT</span></h2>
+        </div>
+        <div class="nav-right">
+            <div class="trophy"><i class="fa-solid fa-trophy"></i> <span id="topScore">0</span></div>
+            <div class="avatar">SH</div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-left">
+            <span class="badge"><i class="fa-solid fa-gamepad"></i> PHANTOM HACK CLUB - MY BIG PROJECT</span>
+            <h1>HUNT.<br>EAT.<br><span>DOMINATE.</span></h1>
+            <p>I made this snake game using HTML CSS JS and JSON. I am 14 years old</p>
+            <div class="hero-btns">
+                <button class="btn-play" onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-play"></i> PLAY NOW</button>
+            </div>
+            <div class="stats">
+                <div><h3>3</h3><p>Modes</p></div>
+                <div><h3>4</h3><p>Foods</p></div>
+                <div><h3>100%</h3><p>Responsive</p></div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="preview-card">
+                <div class="preview-top"><p><span class="dot"></span> LIVE PREVIEW</p><span>60 FPS</span></div>
+                <img class="hero-game-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800" alt="neon gaming">
+                <div class="preview-bottom"><h4>Neon Snake Engine</h4><p>Canvas + JSON + Particles + Glow</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-game" id="game">
+        <div class="left-col">
+            <div class="card">
+                <div class="card-head"><i class="fa-solid fa-chart-line"></i><h4>MY STATS</h4><span class="live">LIVE</span></div>
+                <div class="grid"><div class="box"><p>SCORE</p><h2 id="score">0</h2></div><div class="box"><p>LEVEL</p><h2 id="level">1</h2></div><div class="box"><p>FOODS</p><h2 id="foods">0</h2></div><div class="box"><p>LENGTH</p><h2 id="length">3</h2></div></div>
+                <div class="prog"><div class="prog-head"><p>Progress</p><p id="pText">0/5</p></div><div class="bar"><div id="barFill"></div></div></div>
+                <p class="status" id="status">READY TO PLAY</p>
+            </div>
+            <div class="card">
+                <div class="card-head"><i class="fa-solid fa-gamepad"></i><h4>MODES FROM JSON</h4></div>
+                <div id="modesBox"></div>
+            </div>
+        </div>
+
+        <div class="center-col">
+            <div class="game-top"><div><small>SCORE</small><h3 id="scoreMain">0</h3></div><div class="mid"><p id="gameStatus">CLICK PLAY TO START</p><div class="mini-bar"><div id="miniBar"></div></div></div><div><small>HIGH</small><h3 id="highScore">0</h3></div></div>
+            <div class="canvas-box">
+                <canvas id="gameCanvas" width="600" height="600"></canvas>
+                <div class="screen" id="startScreen">
+                    <img class="screen-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="gaming">
+                    <h1>SNAKE HUNT</h1>
+                    <p>Phantom Hack Club</p>
+                    <div class="lvl-row"><button class="lvl active" data-lvl="1">EASY<br><small>Slow</small></button><button class="lvl" data-lvl="2">MEDIUM<br><small>Normal</small></button><button class="lvl" data-lvl="3">HARD<br><small>Fast + Walls</small></button></div>
+                    <button class="big-btn" id="startBtn"><i class="fa-solid fa-play"></i> START GAME</button>
+                    <p class="json-tag"><i class="fa-solid fa-file-code"></i> Data from database.json</p>
+                </div>
+
+                <div class="screen hide" id="pauseScreen"><h1>PAUSED</h1><button class="big-btn" id="resumeBtn">RESUME</button><button class="small-btn" id="restartBtn2">RESTART</button></div>
+                <div class="screen hide" id="overScreen">
+                    <img class="screen-img over-img" src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=300" alt="game over">
+                    <h1 style="color: #ff4757;">GAME OVER</h1>
+                    <div class="final"><div><h2 id="fScore">0</h2><p>Score</p></div><div><h2 id="fLen">0</h2><p>Length</p></div></div><h2 id="fLevel">1</h2><p>Level</p></div><div><h2 id="fFood">0</h2><p>Foods</p></div></div>
+                    <p id="rank">Rank: Worm</p>
+                    <button class="big-btn" id="restartBtn">PLAY AGAIN</button><button class="small-btn" onclick="showStart()">MENU</button>
+                </div>
+            </div>
+            <div class="mobile-ctrl"><button id="upBtn"><i class="fa-solid fa-arrow-up"></i></button><div class="mid=row"><button id="leftBtn"><i class="fa-solid fa-arrow-left"></i></button><button id="downBtn"><i class="fa-solid fa-arrow-down"></i></button><button id="rightBtn"><i class="fa-solid fa-arrow-right"></i></button></div><div class="action-row"><button id="pauseMob"><i class="fa-solid fa-pause"></i> PAUSE</button><button id="restartMob"><i class="fa-solid fa-rotate"></i> RESTART</button></div></div>
+        </div>
+
+        <div class="right-col">
+            <div class="card"><div class="card-head"><i class="fa-solid fa-crown"></i><h4>LEADERBOARD FROM JSON</h4></div><div id="boardBox"></div><div class="my-best"><div><p>My Best</p><small>Now</small></div><b id="myBest">0</b></div></div>
+            <div class="card"><div class="card-head"><i class="fa-solid fa-flask"></i><h4>FOODS FROM JSON</h4></div><div id="foodBox"></div></div>
+            <div class="card"><div class="card-head"><i class="fa-solid fa-gear"></i><h4>SETTINGS</h4></div><div class="set"><p>Wrap Walls</p><div class="toggle" id="wrapT"></div></div><div class="set"><p>Grid</p><div class="toggle on" id="gridT"></div></div></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
